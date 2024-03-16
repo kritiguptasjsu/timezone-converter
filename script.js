@@ -8,3 +8,8 @@ function convertTime() {
 
     document.getElementById('result').innerText = `Converted Date/Time: ${targetDatetime.format('YYYY-MM-DD HH:mm:ss')}`;
 }
+
+flatpickr("#datetime", {
+    enableTime: true,
+    dateFormat: "Y-m-d H:i:S",
+});
