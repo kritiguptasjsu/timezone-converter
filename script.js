@@ -12,4 +12,5 @@ function convertTime() {
 flatpickr("#datetime", {
     enableTime: true,
     dateFormat: "Y-m-d H:i:S",
+    allowInput: true
 });
