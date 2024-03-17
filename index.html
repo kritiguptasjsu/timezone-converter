@@ -6,32 +6,54 @@
     <title>Timezone Converter</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-</head>
+    </head>
 <body>
     <div class="container">
         <h1>Timezone Converter</h1>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
         <div>
             <label for="datetime">
-                Date/Time (YYYY-MM-DD HH:MM:SS):  
-                <span class="icon"><i class="far fa-calendar-alt"></i></span>
-                </label>
-                    <input type="text" id="datetime" placeholder="Enter date/time">
+                Date/Time (YYYY-MM-DD HH:MM:SS):
+            <span class="icon"><i class="far fa-calendar-alt"></i></span>
+</label>
+            <input type="text" id="datetime" placeholder="Enter date/time">
         </div>
         <div>
             <label for="sourceTimezone">Source Timezone:</label>
-            <input type="text" id="sourceTimezone" placeholder="Enter source timezone">
+            <select id="sourceTimezone">
+                <option value="">Select a timezone...</option>
+            </select>
         </div>
         <div>
             <label for="targetTimezone">Target Timezone:</label>
-            <input type="text" id="targetTimezone" placeholder="Enter target timezone">
+            <select id="targetTimezone">
+                <option value="">Select a timezone...</option>
+            </select>
         </div>
         <button onclick="convertTime()">Convert</button>
         <div id="result"></div>
     </div>
+
     <script src="https://momentjs.com/downloads/moment.js"></script>
     <script src="https://momentjs.com/downloads/moment-timezone-with-data.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="script.js"></script>
+    <script>
+        // Populate the source timezone dropdown
+        const sourceTimezoneSelect = document.getElementById('sourceTimezone');
+        const targetTimezoneSelect = document.getElementById('targetTimezone');
+
+        const timezones = moment.tz.names();
+        timezones.forEach(function(timezone) {
+            const option = document.createElement('option');
+            option.value = timezone;
+            option.textContent = timezone;
+            sourceTimezoneSelect.appendChild(option);
+
+            // Duplicate the option for the target timezone dropdown
+            const targetOption = option.cloneNode(true);
+            targetTimezoneSelect.appendChild(targetOption);
+        });
+    </script>
 </body>
 </html>
