@@ -39,7 +39,6 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="script.js"></script>
     <script>
-        // Populate the source timezone dropdown
         const sourceTimezoneSelect = document.getElementById('sourceTimezone');
         const targetTimezoneSelect = document.getElementById('targetTimezone');
 
@@ -50,10 +49,12 @@
             option.textContent = timezone;
             sourceTimezoneSelect.appendChild(option);
 
-            // Duplicate the option for the target timezone dropdown
             const targetOption = option.cloneNode(true);
             targetTimezoneSelect.appendChild(targetOption);
         });
     </script>
+    <footer>
+        <p>Made by Kriti Gupta</p>
+    </footer>
 </body>
 </html>
